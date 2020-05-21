@@ -4,17 +4,24 @@ from tkinter import ttk
 # Creates top level window
 root = Tk()
 
-# Creates a new button widget
-button = ttk.Button(root, text='Click Me')
+# Functions for output
+def output1():
+    print(1)
+def output2():
+    print(2)
+def output3():
+    print(3)
 
-# Always pack the button
-button.pack()
+# Create buttons 1,2,3
+num1 = ttk.Button(root, text='1', command=output1)
+num2 = ttk.Button(root, text='2', command=output2)
+num3 = ttk.Button(root, text='3', command=output3)
 
-# Changing text
-button['text'] = 'Hi There'
-ttk.Label(root, text='Hello World!').pack()
+# Geometry packs them
+num1.pack()
+num2.pack()
+num3.pack()
 
-# Always declare mainloop to keep it open
 root.mainloop()
 
 
