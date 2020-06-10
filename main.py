@@ -5,6 +5,8 @@ if __name__ == '__main__':
 
     # Calculator will loop forever until prompted
     again = 'y'
+    x = 0
+
     while again == 'y':
         # Asks user to input 2 numbers (for now...)
         # Asks user to input 2 numbers (of any type float or int)
@@ -35,7 +37,7 @@ if __name__ == '__main__':
             x = round(result)
             print(x)
         else:
-            print(x)
+            print(result)
 
         again = input("Enter 'y' to continue")
 
