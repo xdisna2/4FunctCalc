@@ -8,8 +8,8 @@ if __name__ == '__main__':
     while again == 'y':
         # Asks user to input 2 numbers (for now...)
         # Asks user to input 2 numbers (of any type float or int)
-        num1 = input()
-        num2 = input()
+        num1 = float(input())
+        num2 = float(input())
 
         # Asks user to do "what" to the numbers (for now...)
         print("Please select an operation")
@@ -31,7 +31,11 @@ if __name__ == '__main__':
         else:
             result = math.multi(num1, num2)
 
-        print(result)
+        if result.is_integer():
+            x = round(result)
+            print(x)
+        else:
+            print(x)
 
         again = input("Enter 'y' to continue")
 
