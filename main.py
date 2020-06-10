@@ -7,8 +7,9 @@ if __name__ == '__main__':
     again = 'y'
     while again == 'y':
         # Asks user to input 2 numbers (for now...)
-        num1 = int(input())
-        num2 = int(input())
+        # Asks user to input 2 numbers (of any type float or int)
+        num1 = input()
+        num2 = input()
 
         # Asks user to do "what" to the numbers (for now...)
         print("Please select an operation")
