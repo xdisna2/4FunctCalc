@@ -5,8 +5,11 @@ from tkinter import ttk
 root = Tk()
 
 # Stores the buttons for the numbers in a frame
-numbers = ttk.Frame(root)
-numbers.pack()
+calc = ttk.Frame(root)
+calc.pack()
+
+numbers = ttk.Frame(calc)
+numbers.grid(row = 0, column = 0)
 
 numbers.config(height = 150, width = 250)
 numbers.config(relief = RIDGE)
@@ -22,6 +25,18 @@ num7 = ttk.Button(numbers, text = '7').grid(row = 0, column = 0)
 num8 = ttk.Button(numbers, text = '8').grid(row = 0, column = 1)
 num9 = ttk.Button(numbers, text = '9').grid(row = 0, column = 2)
 
+operations = ttk.Frame(calc)
+operations.grid(row = 0, column = 1)
+
+operations.config(height = 150, width = 50, relief = RAISED)
+add = ttk.Button(operations, text = '+').grid(row = 0, column = 0)
+sub = ttk.Button(operations, text = '-').grid(row = 1, column = 0)
+div = ttk.Button(operations, text = '/').grid(row = 2, column = 0)
+multi = ttk.Button(operations, text = 'x').grid(row = 3, column = 0)
+
+#operations.config
+
+#add = ttk.Button(operations, text = '+').grid(row = 0, column = 0)
 
 
 root.mainloop()
