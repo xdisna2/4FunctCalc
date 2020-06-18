@@ -5,7 +5,7 @@ from tkinter import ttk
 root = Tk()
 
 # Label for number output
-output = ttk.Label(root, text = '0')
+output = Label(root, text = '0', height = 2, width = 40, background = 'snow')
 output.pack()
 
 # Stores the buttons for the numbers in a frame
@@ -16,8 +16,8 @@ calc.pack()
 numbers = ttk.Frame(calc)
 numbers.grid(row = 0, column = 0)
 
-numbers.config(height = 150, width = 250)
-numbers.config(relief = RIDGE)
+# Configures the frame height and width
+numbers.config(height = 150, width = 200, relief = RIDGE, padding = 5)
 deci = ttk.Button(numbers, text = '.').grid(row = 3, column = 2)
 num0 = ttk.Button(numbers, text = '0').grid(row = 3, column = 0, columnspan = 2, sticky = W + E)
 num1 = ttk.Button(numbers, text = '1').grid(row = 2, column = 0)
@@ -54,7 +54,6 @@ multi.config(width = op_wd)
 
 # Equals
 equate = ttk.Button(calc, text = '=').grid(row = 1, column = 0, columnspan = 2, sticky = W + E)
-
 
 
 root.mainloop()
