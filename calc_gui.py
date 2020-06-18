@@ -3,10 +3,13 @@ from tkinter import ttk
 
 # Create the top-level window
 root = Tk()
+root.title('4 Function Calculator')
+# Prevents the Calculator from being resized
+root.resizable(False, False)
 
 # Label for number output
-output = Label(root, text = '0', height = 2, width = 40, background = 'snow')
-output.pack()
+output = Label(root, text = '0', height = 2, background = 'snow')
+output.pack(fill = X)
 
 # Stores the buttons for the numbers in a frame
 calc = ttk.Frame(root)
