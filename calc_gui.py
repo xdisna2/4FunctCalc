@@ -42,17 +42,19 @@ sub = ttk.Button(operations, text = '-')
 div = ttk.Button(operations, text = '/')
 multi = ttk.Button(operations, text = 'x')
 
+# Operation grid manager
 add.grid(row = 0, column = 0)
 sub.grid(row = 1, column = 0)
 div.grid(row = 2, column = 0)
 multi.grid(row = 3, column = 0)
 
+# Operation Button width
 add.config(width = op_wd)
 sub.config(width = op_wd)
 div.config(width = op_wd)
 multi.config(width = op_wd)
 
-# Equals
+# Equals button
 equate = ttk.Button(calc, text = '=').grid(row = 1, column = 0, columnspan = 2, sticky = W + E)
 
 
