@@ -31,14 +31,26 @@ num8 = ttk.Button(numbers, text = '8').grid(row = 0, column = 1)
 num9 = ttk.Button(numbers, text = '9').grid(row = 0, column = 2)
 
 # 4 Function Operations
+op_wd = 8
+op_pd = 5
 operations = ttk.Frame(calc)
 operations.grid(row = 0, column = 1)
 
-operations.config(height = 150, width = 50, relief = RAISED)
-add = ttk.Button(operations, text = '+').grid(row = 0, column = 0)
-sub = ttk.Button(operations, text = '-').grid(row = 1, column = 0)
-div = ttk.Button(operations, text = '/').grid(row = 2, column = 0)
-multi = ttk.Button(operations, text = 'x').grid(row = 3, column = 0)
+operations.config(height = 150, width = op_wd, relief = SUNKEN, padding = op_pd)
+add = ttk.Button(operations, text = '+')
+sub = ttk.Button(operations, text = '-')
+div = ttk.Button(operations, text = '/')
+multi = ttk.Button(operations, text = 'x')
+
+add.grid(row = 0, column = 0)
+sub.grid(row = 1, column = 0)
+div.grid(row = 2, column = 0)
+multi.grid(row = 3, column = 0)
+
+add.config(width = op_wd)
+sub.config(width = op_wd)
+div.config(width = op_wd)
+multi.config(width = op_wd)
 
 # Equals
 equate = ttk.Button(calc, text = '=').grid(row = 1, column = 0, columnspan = 2, sticky = W + E)
