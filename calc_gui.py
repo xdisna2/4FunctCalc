@@ -7,8 +7,10 @@ def number_disp(number):
     user += str(number)
     output.config(text=user)
 
-def clear(num):
+def clear_num(num):
+    global user
     output.config(text=str(num))
+    user = ''
 
 # Create the top-level window
 root = Tk()
@@ -70,7 +72,7 @@ multi.config(width = op_wd)
 box3 = ttk.Frame(root)
 box3.pack()
 equate = ttk.Button(box3, text = '=').grid(row = 0, column = 0)
-clear = ttk.Button(box3, text = 'C', command=lambda : clear(0)).grid(row = 0, column = 1)
+clear = ttk.Button(box3, text = 'C', command=lambda : clear_num(0)).grid(row = 0, column = 1)
 clear_step = ttk.Button(box3, text = 'CE').grid(row = 0, column = 2)
 
 root.mainloop()
