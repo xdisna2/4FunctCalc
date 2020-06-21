@@ -5,10 +5,13 @@ if __name__ == '__main__':
 
     # Calculator will loop forever until prompted
     again = 'y'
+    x = 0
+
     while again == 'y':
         # Asks user to input 2 numbers (for now...)
-        num1 = int(input())
-        num2 = int(input())
+        # Asks user to input 2 numbers (of any type float or int)
+        num1 = float(input())
+        num2 = float(input())
 
         # Asks user to do "what" to the numbers (for now...)
         print("Please select an operation")
@@ -30,7 +33,11 @@ if __name__ == '__main__':
         else:
             result = math.multi(num1, num2)
 
-        print(result)
+        if result.is_integer():
+            x = round(result)
+            print(x)
+        else:
+            print(result)
 
         again = input("Enter 'y' to continue")
 
