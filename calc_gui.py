@@ -4,8 +4,11 @@ user = ''
 
 def number_disp(number):
     global user
-    user += str(number)
-    output.config(text=user)
+    # If FIRST number is 0 and the string is blank then do not do anything
+    # Other than that output the input
+    if not(number == 0 and user == ''):
+        user += str(number)
+        output.config(text=user)
 
 def clear_num(num):
     global user
