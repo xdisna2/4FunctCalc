@@ -1,38 +1,49 @@
 from tkinter import *
 from tkinter import ttk
-user = ''
+user_num = ''
 expr = ''
 signs = ['+', '-', '/', '*']
 
 def number_disp(number):
-    global user
+    global user_num
     global expr
     # If FIRST number is 0 and the string is blank then do not do anything
     # Other than that output the input
-    if not(number == 0 and user == ''):
+    if not(number == 0 and user_num == ''):
+        # If that number is not a sign then concatenate and display the ouput
         if number not in signs:
-            user += str(number)
-            output.config(text=user)
+            user_num += str(number)
+            output.config(text=user_num)
+        # If it is a sign then add the number and the sign to the expression
+        # Then clear the user_num left over for the next number
         else:
-            expr = user + number
-            user = ''
+            expr = user_num + number
+            user_num = ''
 
 def clear_num(num):
     global user
+    global expr
     output.config(text=str(num))
     user = ''
     expr = ''
 
 def evaluate():
-    global user
+    global user_num
     global expr
-    expr += user
+    # Add in the second number to the expression
+    expr += user_num
+    # Evaluate the string expression
     answer = float(eval(expr))
+    # Checks to see if the float could be an integer
     if answer.is_integer():
+        # If so then round to an int and output
         output.config(text=str(round(answer)))
     else:
         output.config(text=str(answer))
-    user = ''
+
+    # Makes the answer the user_num for future calculations
+    user_num = str(answer)
+    expr = ''
 
 
 # Create the top-level window
@@ -96,7 +107,6 @@ box3 = ttk.Frame(root)
 box3.pack()
 equate = ttk.Button(box3, text = '=', command= lambda : evaluate()).grid(row = 0, column = 0)
 clear = ttk.Button(box3, text = 'C', command=lambda : clear_num(0)).grid(row = 0, column = 1)
-clear_step = ttk.Button(box3, text = 'CE').grid(row = 0, column = 2)
 
 root.mainloop()
 
