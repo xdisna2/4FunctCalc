@@ -4,22 +4,27 @@ user_num = ''
 expr = ''
 signs = ['+', '-', '/', '*']
 
+# Outputs numbers to Label and gathers expression for calculation
 def number_disp(number):
     global user_num
     global expr
+
     # If FIRST number is 0 and the string is blank then do not do anything
     # Other than that output the input
     if not(number == 0 and user_num == ''):
+
         # If that number is not a sign then concatenate and display the ouput
         if number not in signs:
             user_num += str(number)
             output.config(text=user_num)
+
         # If it is a sign then add the number and the sign to the current expression
         # Then clear the user_num left over for the next number
         else:
             expr = expr + user_num + number
             user_num = ''
 
+# Resets Label and also clears all calculations
 def clear_num(num):
     global user
     global expr
@@ -27,6 +32,7 @@ def clear_num(num):
     user = ''
     expr = ''
 
+# Calculates based on given expression
 def evaluate():
     global user_num
     global expr
@@ -64,7 +70,7 @@ calc.pack()
 numbers = ttk.Frame(calc)
 numbers.grid(row = 0, column = 0)
 
-# Configures the frame height and width
+# Configures the frame height and width along with Button configurations
 numbers.config(height = 150, width = 200, relief = RIDGE, padding = 5)
 deci = ttk.Button(numbers, text = '.', command = lambda : number_disp('.')).grid(row = 3, column = 2)
 num0 = ttk.Button(numbers, text = '0', command = lambda : number_disp(0)).grid(row = 3, column = 0, columnspan = 2, sticky = W + E)
@@ -78,7 +84,7 @@ num7 = ttk.Button(numbers, text = '7', command = lambda : number_disp(7)).grid(r
 num8 = ttk.Button(numbers, text = '8', command = lambda : number_disp(8)).grid(row = 0, column = 1)
 num9 = ttk.Button(numbers, text = '9', command = lambda : number_disp(9)).grid(row = 0, column = 2)
 
-# 4 Function Operations
+# 4 Function Operation Buttons
 op_wd = 8
 op_pd = 5
 operations = ttk.Frame(calc)
