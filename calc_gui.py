@@ -14,10 +14,10 @@ def number_disp(number):
         if number not in signs:
             user_num += str(number)
             output.config(text=user_num)
-        # If it is a sign then add the number and the sign to the expression
+        # If it is a sign then add the number and the sign to the current expression
         # Then clear the user_num left over for the next number
         else:
-            expr = user_num + number
+            expr = expr + user_num + number
             user_num = ''
 
 def clear_num(num):
