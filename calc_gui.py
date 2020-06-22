@@ -1,19 +1,39 @@
 from tkinter import *
 from tkinter import ttk
 user = ''
+expr = ''
+signs = ['+', '-', '/', '*']
 
 def number_disp(number):
     global user
+    global expr
     # If FIRST number is 0 and the string is blank then do not do anything
     # Other than that output the input
     if not(number == 0 and user == ''):
-        user += str(number)
-        output.config(text=user)
+        if number not in signs:
+            user += str(number)
+            output.config(text=user)
+        else:
+            expr = user + number
+            user = ''
 
 def clear_num(num):
     global user
     output.config(text=str(num))
     user = ''
+    expr = ''
+
+def evaluate():
+    global user
+    global expr
+    expr += user
+    answer = float(eval(expr))
+    if answer.is_integer():
+        output.config(text=str(round(answer)))
+    else:
+        output.config(text=str(answer))
+    user = ''
+
 
 # Create the top-level window
 root = Tk()
@@ -54,10 +74,10 @@ operations = ttk.Frame(calc)
 operations.grid(row = 0, column = 1)
 
 operations.config(height = 150, width = op_wd, relief = SUNKEN, padding = op_pd)
-add = ttk.Button(operations, text = '+')
-sub = ttk.Button(operations, text = '-')
-div = ttk.Button(operations, text = '/')
-multi = ttk.Button(operations, text = 'x')
+add = ttk.Button(operations, text = '+', command = lambda : number_disp('+'))
+sub = ttk.Button(operations, text = '-', command = lambda : number_disp('-'))
+div = ttk.Button(operations, text = '/', command = lambda : number_disp('/'))
+multi = ttk.Button(operations, text = 'x', command = lambda : number_disp('*'))
 
 # Operation grid manager
 add.grid(row = 0, column = 0)
@@ -74,7 +94,7 @@ multi.config(width = op_wd)
 # Equals button and clear button
 box3 = ttk.Frame(root)
 box3.pack()
-equate = ttk.Button(box3, text = '=').grid(row = 0, column = 0)
+equate = ttk.Button(box3, text = '=', command= lambda : evaluate()).grid(row = 0, column = 0)
 clear = ttk.Button(box3, text = 'C', command=lambda : clear_num(0)).grid(row = 0, column = 1)
 clear_step = ttk.Button(box3, text = 'CE').grid(row = 0, column = 2)
 
